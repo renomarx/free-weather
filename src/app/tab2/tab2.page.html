@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Locations
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-list lines="none">
+    <ion-list-header>
+      <ion-label>Villes</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let city of locationService.cities">
+      <ion-label>{{ city.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

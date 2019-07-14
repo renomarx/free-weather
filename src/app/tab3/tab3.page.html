@@ -1,9 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      Settings
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-item>
+    <ion-label>Clé API</ion-label>
+    <ion-input type="text" [(ngModel)]="settings.weatherAPIKey" name="weatherAPIKey"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button expand="block" (click)="weatherService.GetCurrentWeather()">Enregistrer</ion-button>
+  </ion-item>
+</ion-content>

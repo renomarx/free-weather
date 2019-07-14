@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SettingsService } from '../services/settings.service';
+import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +9,6 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(public settings: SettingsService, public weatherService: WeatherService) {}
 
 }
