@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LocationService } from '../services/location.service';
+import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-tab2',
@@ -8,6 +9,12 @@ import { LocationService } from '../services/location.service';
 })
 export class Tab2Page {
 
-  constructor(public locationService: LocationService) {}
+  constructor(public locationService: LocationService, public weatherService: WeatherService) {}
+
+  public SelectCity(idx: number) {
+    console.log("Selected city #" + idx)
+    this.locationService.SelectCity(idx)
+    this.weatherService.GetCurrentWeather()
+  }
 
 }

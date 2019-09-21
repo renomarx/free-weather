@@ -50,27 +50,29 @@ export class WeatherService {
   weather: Weather;
 
   constructor(public locationService: LocationService, private http: HttpClient, public settings: SettingsService) {
-    this.GetCurrentWeather()
   }
 
   public GetCurrentWeather() {
     let city = this.locationService.SelectedCity
     if (this.settings.weatherAPIKey != "") {
-      let apiUrl = this.settings.GetWeatherCurrentURL(city.id)
-      this.http.get(apiUrl).subscribe((response: WeatherAPIResult) => {
-        console.log(response);
-        this.weather = {
-          City: city.name,
-          Main: response.weather[0].main,
-          Description: response.weather[0].description,
-          Icon: response.weather[0].icon,
-          Temperature: this.kelvinToCelsius(response.main.temp),
-          Pressure: response.main.pressure,
-          Humidity: response.main.humidity,
-          TempMin: this.kelvinToCelsius(response.main.temp_min),
-          TempMax: this.kelvinToCelsius(response.main.temp_max)
-        }
-      });
+      this.settings.Load().then((val) => {
+        console.log("settings loaded : ", val)
+        let apiUrl = this.settings.GetWeatherCurrentURL(city.id)
+        this.http.get(apiUrl).subscribe((response: WeatherAPIResult) => {
+          console.log(response);
+          this.weather = {
+            City: city.name,
+            Main: response.weather[0].main,
+            Description: response.weather[0].description,
+            Icon: response.weather[0].icon,
+            Temperature: this.kelvinToCelsius(response.main.temp),
+            Pressure: response.main.pressure,
+            Humidity: response.main.humidity,
+            TempMin: this.kelvinToCelsius(response.main.temp_min),
+            TempMax: this.kelvinToCelsius(response.main.temp_max)
+          }
+        })
+      }).catch((err) => { console.log(err)})
     }
   }
 

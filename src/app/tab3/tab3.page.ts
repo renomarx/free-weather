@@ -11,4 +11,9 @@ export class Tab3Page {
 
   constructor(public settings: SettingsService, public weatherService: WeatherService) {}
 
+  public Save() {
+    this.settings.Save()
+    this.weatherService.GetCurrentWeather()
+  }
+
 }

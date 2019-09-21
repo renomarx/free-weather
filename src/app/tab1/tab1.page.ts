@@ -16,6 +16,8 @@ export class Tab1Page {
     public locationService: LocationService,
     public settings: SettingsService,
     public weatherService: WeatherService
-  ) {}
+  ) {
+    this.weatherService.GetCurrentWeather()
+  }
 
 }

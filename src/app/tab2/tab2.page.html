@@ -11,8 +11,8 @@
     <ion-list-header>
       <ion-label>Villes</ion-label>
     </ion-list-header>
-    <ion-item *ngFor="let city of locationService.cities">
-      <ion-label>{{ city.name }}</ion-label>
+    <ion-item *ngFor="let city of locationService.cities; let idx = index">
+      <ion-label (click)="SelectCity(idx)"  [ngClass]="{active: locationService.SelectedCity.id == city.id}">{{ city.name }}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -29,23 +29,41 @@ export class LocationService {
         }
       },
       {
-        "id": 519188,
-        "name": "Novinki",
-        "country": "RU",
+        "id": 3000902,
+        "name": "Les Gets",
+        "country": "FR",
         "coord": {
-          "lon": 37.666668,
-          "lat": 55.683334
+          "lon": 6.66492,
+          "lat": 46.15522
         }
       },
       {
-        "id": 1283378,
-        "name": "Gorkhā",
-        "country": "NP",
+        "id": 6455259,
+        "name": "Paris",
+        "country": "FR",
         "coord": {
-          "lon": 84.633331,
-          "lat": 28
+          "lon": 2.35236,
+          "lat": 48.856461
         }
-      }
+      },
+      {
+        "id": 6443060,
+        "name": "Taninges",
+        "country": "FR",
+        "coord": {
+          "lon": 6.59077,
+          "lat": 46.108471
+        }
+      },
+      {
+        "id": 6455058,
+        "name": "Bordeaux",
+        "country": "FR",
+        "coord": {
+          "lon": -0.56667,
+          "lat": 44.833328
+        }
+      },
     ]
     this.SelectedCity = this.cities[0]
   }
